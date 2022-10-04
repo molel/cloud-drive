@@ -17,3 +17,9 @@
 # IDEs and Code Editors
 .idea
 .vscode
+
+# Environment files
+*.env
+
+# Log files
+./logs/*.txt
