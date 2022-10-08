@@ -28,6 +28,16 @@ type Config struct {
 	} `mapstructure:"mongodb"`
 }
 
+func init() {
+	viper.AutomaticEnv()
+	viper.SetConfigType("env")
+	viper.AddConfigPath(".")
+	viper.SetConfigName(".env")
+	if err := viper.ReadInConfig(); err != nil {
+		log.Fatalf("cannot load variables from .env file:\n%s", err.Error())
+	}
+}
+
 func NewConfig() (cfg Config) {
 	if err := viper.Unmarshal(&cfg); err != nil {
 		log.Fatalf("cannot unmarshall configs from file:\n%s", err.Error())
