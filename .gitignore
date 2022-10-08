@@ -22,4 +22,7 @@
 *.env
 
 # Log files
-./logs/*.txt
+logs/*.txt
+
+# Database files
+.database
